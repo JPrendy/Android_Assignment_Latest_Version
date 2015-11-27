@@ -27,7 +27,7 @@
             android:screenOrientation="portrait"
             android:label="" >
         </activity>
-        <!--this allows access to EditContract class with its screen orientation locked to portrait-->
+        <!--this allows access to editMovie class with its screen orientation locked to portrait-->
         <activity
             android:name=".Edit_Movie"
             android:screenOrientation="portrait"

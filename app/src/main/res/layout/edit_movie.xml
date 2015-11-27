@@ -21,7 +21,7 @@
             android:padding="@dimen/padding_5dp"
 
             android:text="@string/edit_Movie_Title"
-            android:layout_marginLeft="125dp"
+            android:layout_marginStart="125dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#FFFFFF"
             android:layout_span="2"
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="text"
             android:paddingRight="@dimen/padding_5dp" >
 
             <requestFocus />
@@ -79,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="text"
             android:paddingRight="@dimen/padding_5dp" >
         </EditText>
     </TableRow>
@@ -105,7 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="phone"
+            android:inputType="text"
             android:paddingRight="@dimen/padding_5dp" >
         </EditText>
     </TableRow>
@@ -132,7 +132,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textEmailAddress"
+            android:inputType="text"
             android:paddingRight="@dimen/padding_5dp" >
         </EditText>
     </TableRow>
@@ -159,7 +159,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="text|textPostalAddress"
+            android:inputType="text"
             android:paddingRight="@dimen/padding_5dp" >
         </EditText>
     </TableRow>
@@ -185,8 +185,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:ems="10"
-            android:inputType="text|textPostalAddress"
+            android:inputType="text"
             android:paddingRight="@dimen/padding_5dp" >
         </EditText>
     </TableRow>
@@ -202,7 +201,7 @@
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="editContact"
+            android:onClick="editMovie"
             android:text="@string/edit_button" />
 
         <Button
@@ -210,7 +209,7 @@
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="removeContact"
+            android:onClick="removeMovie"
             android:text="@string/delete_button" />
     </TableRow>
 

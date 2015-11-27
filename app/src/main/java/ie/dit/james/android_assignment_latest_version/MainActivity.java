@@ -1,17 +1,13 @@
-package ie.dit.james.android_assignment_latest_version;
-
-import android.app.ListActivity;
-
 //Android Assignment
 //James Prendergast
 //C13446122
 //27_11_2015
 
-
+//this is the name of the Package of the Assignment
+package ie.dit.james.android_assignment_latest_version;
 
         import android.app.ListActivity;
         import android.content.Intent;
-        import android.graphics.Movie;
         import android.media.AudioManager;
         import android.os.Bundle;
         import android.view.View;
@@ -24,27 +20,22 @@ import android.app.ListActivity;
         import android.widget.TableRow;
         import android.widget.TextView;
         import android.widget.Toast;
-
         import java.util.ArrayList;
         import java.util.HashMap;
 
-import ie.dit.james.android_assignment_latest_version.DBTools;
-import ie.dit.james.android_assignment_latest_version.New_Movie;
-import ie.dit.james.android_assignment_latest_version.R;
-import ie.dit.james.android_assignment_latest_version.RingerHelper;
 
 //this is the first java class that is called when the app is running extends ListActivity
 public class MainActivity extends ListActivity {
 
 
     TextView movieid; ///this creates the TextView Variable movieid
-    TextView MovieTitle;
+    TextView MovieTitle;///this creates the TextView Variable MovieTitle
     int i = 0;  //this creates an integer variable and stores zero as it value
 
     AudioManager audioManager;
 
     // The object that allows me to modify my database with theDBTools class
-    DBTools dbTools = new DBTools(this);
+    DatabaseManager databaseManager = new DatabaseManager(this);
 
     // Called when the Activity is first called
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,11 +55,13 @@ public class MainActivity extends ListActivity {
         final TableRow contentView = (TableRow) findViewById(R.id.tableRow1_5);
         final TableRow contentView2 = (TableRow) findViewById(R.id.tableRow2);
         final TableRow contentView3 = (TableRow) findViewById(R.id.tableRow3);
+        final Button button1 = (Button) findViewById(R.id.button2);
 
-
+        //this cause this method to be called when ever tableRow1_5 is clicked on
         contentView.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
+                //this toggles the sound settings and updates ui and display a message to show the changes
                 RingerHelper.performToggle(audioManager);
                 updateUi();
                 Toast.makeText(getApplicationContext(), "Silent Setting Changed",
@@ -76,139 +69,112 @@ public class MainActivity extends ListActivity {
             }
         });
 
-
-        final Button button1 = (Button) findViewById(R.id.button2);
-
-
+        //this cause this method to be called when ever button2 is clicked on
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {
-
+                //whenever clicked it add +1 to i which we use to show the effects of the buttons
+                String Dark = "Dark Theme";
+                String Light = "Light Theme";
                 i++;
+                //if i is divisible by 2 and has no remainders it sets the following methods
+                if (i % 2 == 0) {
 
-                if (i % 2 == 0)
-
-                {
-                    //-----------Refernce the Following code is from android example at http://stackoverflow.com/questions/2173936/how-to-set-background-color-of-a-view
                     button1.setBackgroundColor(0xff616161);
                     contentView0.setBackgroundColor(0xff616161);
                     contentView.setBackgroundColor(0xff616161);
                     contentView3.setBackgroundColor(0xff757575);
                     contentView2.setBackgroundColor(0xff9E9E9E);
-                    // ok.setBackgroundColor(0xFFE0E0E0);
+                    button1.setText(Dark);
 
-                    //----------Reference Complete
-                    button1.setText("Dark Theme");
-                    Toast.makeText(getApplicationContext(), "Dark Theme",
+                    Toast.makeText(getApplicationContext(), Dark,
                             Toast.LENGTH_SHORT).show();
-                } else if (i % 2 != 0) {
-                    //-----------Reference the Following code is from android example at http://stackoverflow.com/questions/2173936/how-to-set-background-color-of-a-view
+                }
+                //if i is divisible by 2 and has remainders it sets the following methods
+                else if (i % 2 != 0) {
+
                     button1.setBackgroundColor(0xffBDBDBD);
                     contentView0.setBackgroundColor(0xffBDBDBD);
                     contentView.setBackgroundColor(0xffBDBDBD);
                     contentView3.setBackgroundColor(0xFFE0E0E0);
                     contentView2.setBackgroundColor(0xFFEEEEEE);
-                    // ok.setBackgroundColor(0xFFFAFAFA);
-                    //----------Reference Complete
-                    button1.setText("Light Theme");
-                    Toast.makeText(getApplicationContext(), "Light Theme",
+                    button1.setText(Light);
+
+                    Toast.makeText(getApplicationContext(), Light,
                             Toast.LENGTH_SHORT).show();
                 }
-
-
             }
 
 
         });
 
 
-        // Gets all the data from the database and stores it
-        // in an ArrayList
+     //this creates an arraylist that stores all our database information in a string using a hashmap
+        ArrayList<HashMap<String, String>> MovieList = databaseManager.getAllMovies();
 
-        ArrayList<HashMap<String, String>> MovieList = dbTools.getAllMovies();
-
-        // Check to make sure there are contacts to display
-
+        // makes sure to see if there is any data to display
         if (MovieList.size() != 0) {
 
-            // Get the ListView and assign an event handler to it
-
+            // This set a ListView and add OnItemClickListener to it
             ListView listView = getListView();
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                    // When an item is clicked get the TextView
-                    // with a matching checkId
-
+                     //this gets the data stored in the textview ids for movieid and movieTitle
                     movieid = (TextView) view.findViewById(R.id.movieid);
                     MovieTitle = (TextView) view.findViewById(R.id.MovieTitle);
 
-                    // Convert that movieid into a String
-
+                    // this converts this data into a String
                     String movieidValue = movieid.getText().toString();
-                    String movieIdValue = MovieTitle.getText().toString();
+                    String movieTitleValue = MovieTitle.getText().toString();
 
+                    //it's going to return data to Edit_Movie.class
+                    Intent theIntent = new Intent(getApplication(), Edit_Movie.class);
 
-                    // Signals an intention to do something
-                    // getApplication() returns the application that owns
-                    // this activity
+                    // This carries the tables values over Edit_Movie.class
+                    theIntent.putExtra("movieid", movieidValue);
+                    theIntent.putExtra("MovieTitle", movieTitleValue);
 
-                    Intent theIndent = new Intent(getApplication(), Edit_Movie.class);
-
-                    // Put additional data in for EditContact to use
-
-                    theIndent.putExtra("movieid", movieidValue);
-                    theIndent.putExtra("MovieTitle", movieIdValue);
-
-                    // Calls for EditContact
-
-                    startActivity(theIndent);
-
-
-
+                    // this calls the intent to switch to Edit_Movie.class
+                    startActivity(theIntent);
                 }
             });
 
+            //this sets up the listview on the MainActivity displaying what we want to show and in what partocular order
 
-
+            //-----------Reference the Following code is from android example at "Android for Programmers An App-Driven Approach
             ListAdapter adapter = new SimpleAdapter(MainActivity.this, MovieList, R.layout.movie_list, new String[]{"movieid", "MovieTitle","Director"}, new int[]{R.id.movieid, R.id.MovieTitle, R.id.Director});
-
-            // setListAdapter provides the Cursor for the ListView
-            // The Cursor provides access to the database data
-
             setListAdapter(adapter);
+            //----------Reference Complete
         }
     }
 
-    // When showAddContact is called with a click the Activity
-    // NewContact is called
 
-    public void showAddContact(View view) {
+    //this calls the method onclick showAddMovie when the "Add Movie" button is pressed
+    public void showAddMovie(View view) {
+        //this switches the view to New_Movie.class
         Intent theIntent = new Intent(getApplicationContext(), New_Movie.class);
         startActivity(theIntent);
     }
 
-
-
-
+    //this method updates the interface images to coincide with silent on/off service
     private void updateUi() {
         //-----------Reference the Following code is from the book Android App Development for Dummie
         ImageView imageView = (ImageView) findViewById(R.id.phone_icon);
-
-
+        //this is switches arround the following two images whenever the method update ui is called
         int phoneImage = RingerHelper.isPhoneSilent(audioManager)
-                ? R.drawable.ringer_on_smaller_6
-                : R.drawable.ringer_off_smaller_5;
+                ? R.drawable.ringer_off_smaller_5
+                : R.drawable.ringer_on_smaller_6;
 
         imageView.setImageResource(phoneImage);
         //----------Reference Complete
-
     }
 
 
+    //this resumes your activity from a paused stated and calls updateui and add +1
+    //to i inorder to make sure it keeps the correct background
     protected void onResume() {
-
         super.onResume();
         updateUi();
         i++;
@@ -216,10 +182,9 @@ public class MainActivity extends ListActivity {
                 Toast.LENGTH_SHORT).show();
     }
 
+    //this pauses your activity from a live state whenever you switch a screen or get a phonecall
     protected void onPause() {
-
         super.onPause();
     }
-
 
 }

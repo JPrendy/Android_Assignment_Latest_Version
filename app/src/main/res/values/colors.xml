@@ -20,8 +20,6 @@
     <item name="darkgreen" type="color">#FF669900</item>
     <item name="darkorange" type="color">#FFFF8800</item>
     <item name="darkred" type="color">#FFCC0000</item>
-
-
     <item name="darkblack" type="color">#ff616161</item>
     <item name="lightdarkblack" type="color">#ff757575</item>
     <item name="lighterdarkblack" type="color">#ff9E9E9E</item>
