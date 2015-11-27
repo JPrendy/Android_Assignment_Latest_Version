@@ -5,7 +5,7 @@
     android:foreground="?selectableItemBackground">
 
     <TextView
-        android:id="@+id/contactId"
+        android:id="@+id/movieid"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:visibility="gone" />

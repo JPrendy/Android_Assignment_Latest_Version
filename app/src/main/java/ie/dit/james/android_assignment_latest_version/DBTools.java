@@ -23,7 +23,7 @@ public class DBTools extends SQLiteOpenHelper {
     //this is our constructor for DBTools that adds the name of our database and our version number
     public DBTools(Context applicationContext){
 
-        super(applicationContext, "contactbook.db", null, 3);
+        super(applicationContext, "movie.db", null, 5);
 
     }
 
@@ -32,7 +32,7 @@ public class DBTools extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase database) {
 
 
-        String query = "CREATE TABLE contacts ( contactId INTEGER PRIMARY KEY, MovieTitle TEXT, " +
+        String query = "CREATE TABLE movies ( movieid INTEGER PRIMARY KEY, MovieTitle TEXT, " +
                 "Director TEXT, Starring TEXT, Genre TEXT, RunTime INTEGER, Comments TEXT)";
 
         database.execSQL(query);
@@ -42,7 +42,7 @@ public class DBTools extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion) {
 
-        String query = "DROP TABLE IF EXISTS contacts";
+        String query = "DROP TABLE IF EXISTS movies";
 
         database.execSQL(query);
         onCreate(database);
@@ -64,7 +64,7 @@ public class DBTools extends SQLiteOpenHelper {
         values.put("RunTime", queryValues.get("RunTime"));
         values.put("Comments", queryValues.get("Comments"));
 
-        database.insert("contacts", null, values);
+        database.insert("movies", null, values);
 
         database.close();
 
@@ -84,8 +84,8 @@ public class DBTools extends SQLiteOpenHelper {
         values.put("RunTime", queryValues.get("RunTime"));
         values.put("Comments", queryValues.get("Comments"));
 
-        return database.update("contacts", values,
-                "contactId" + " = ?", new String[] {queryValues.get("contactId") });
+        return database.update("movies", values,
+                "movieid" + " = ?", new String[] {queryValues.get("movieid") });
 
     }
 
@@ -93,7 +93,7 @@ public class DBTools extends SQLiteOpenHelper {
 
         SQLiteDatabase database = this.getWritableDatabase();
 
-        String deleteQuery = "DELETE FROM contacts WHERE contactId='" + id + "'";
+        String deleteQuery = "DELETE FROM movies WHERE movieid='" + id + "'";
 
         database.execSQL(deleteQuery);
 
@@ -103,7 +103,7 @@ public class DBTools extends SQLiteOpenHelper {
 
         ArrayList<HashMap<String, String>> contactArrayList = new ArrayList<HashMap<String, String>>();
 
-        String selectQuery = "SELECT * FROM contacts ORDER BY MovieTitle";
+        String selectQuery = "SELECT * FROM movies ORDER BY MovieTitle";
 
         SQLiteDatabase database = this.getWritableDatabase();
 
@@ -117,7 +117,7 @@ public class DBTools extends SQLiteOpenHelper {
 
 
 
-                contactMap.put("contactId", cursor.getString(0));
+                contactMap.put("movieid", cursor.getString(0));
                 contactMap.put("MovieTitle", cursor.getString(1));
                 contactMap.put("Director", cursor.getString(2));
                 contactMap.put("Starring", cursor.getString(3));
@@ -142,7 +142,7 @@ public class DBTools extends SQLiteOpenHelper {
 
         SQLiteDatabase database = this.getReadableDatabase();
 
-        String selectQuery = "SELECT * FROM contacts WHERE contactId='" + id + "'";
+        String selectQuery = "SELECT * FROM movies WHERE movieid='" + id + "'";
 
         Cursor cursor = database.rawQuery(selectQuery, null);
 
@@ -151,7 +151,7 @@ public class DBTools extends SQLiteOpenHelper {
             do{
 
 
-                contactMap.put("contactId", cursor.getString(0));
+                contactMap.put("movieid", cursor.getString(0));
                 contactMap.put("MovieTitle", cursor.getString(1));
                 contactMap.put("Director", cursor.getString(2));
                 contactMap.put("Starring", cursor.getString(3));

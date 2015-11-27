@@ -51,11 +51,11 @@ public class Edit_Movie extends Activity {
 
 
 
-        String contactId = theIntent.getStringExtra("contactId");
+        String movieid = theIntent.getStringExtra("movieid");
 
 
 
-        HashMap<String, String> contactList = dbTools.getContactInfo(contactId);
+        HashMap<String, String> contactList = dbTools.getContactInfo(movieid);
 
         if(contactList.size()!=0)
 
@@ -87,9 +87,9 @@ public class Edit_Movie extends Activity {
 
         Intent theIntent = getIntent();
 
-        String contactId = theIntent.getStringExtra("contactId");
+        String movieid = theIntent.getStringExtra("movieid");
 
-        queryValuesMap.put("contactId", contactId);
+        queryValuesMap.put("movieid", movieid);
 
 
         queryValuesMap.put("MovieTitle", MovieTitle.getText().toString());
@@ -111,9 +111,9 @@ public class Edit_Movie extends Activity {
 
         Intent theIntent = getIntent();
 
-        String contactId = theIntent.getStringExtra("contactId");
+        String movieid = theIntent.getStringExtra("movieid");
 
-        dbTools.deleteContact(contactId);
+        dbTools.deleteContact(movieid);
 
         this.callMainActivity(view);
 

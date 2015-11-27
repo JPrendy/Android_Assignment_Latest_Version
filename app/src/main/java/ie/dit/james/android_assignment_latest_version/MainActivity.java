@@ -37,7 +37,7 @@ import ie.dit.james.android_assignment_latest_version.RingerHelper;
 public class MainActivity extends ListActivity {
 
 
-    TextView contactId; ///this creates the TextView Variable contactId
+    TextView movieid; ///this creates the TextView Variable movieid
     TextView MovieTitle;
     int i = 0;  //this creates an integer variable and stores zero as it value
 
@@ -141,12 +141,12 @@ public class MainActivity extends ListActivity {
                     // When an item is clicked get the TextView
                     // with a matching checkId
 
-                    contactId = (TextView) view.findViewById(R.id.contactId);
+                    movieid = (TextView) view.findViewById(R.id.movieid);
                     MovieTitle = (TextView) view.findViewById(R.id.MovieTitle);
 
-                    // Convert that contactId into a String
+                    // Convert that movieid into a String
 
-                    String contactIdValue = contactId.getText().toString();
+                    String movieidValue = movieid.getText().toString();
                     String movieIdValue = MovieTitle.getText().toString();
 
 
@@ -158,7 +158,7 @@ public class MainActivity extends ListActivity {
 
                     // Put additional data in for EditContact to use
 
-                    theIndent.putExtra("contactId", contactIdValue);
+                    theIndent.putExtra("movieid", movieidValue);
                     theIndent.putExtra("MovieTitle", movieIdValue);
 
                     // Calls for EditContact
@@ -172,7 +172,7 @@ public class MainActivity extends ListActivity {
 
 
 
-            ListAdapter adapter = new SimpleAdapter(MainActivity.this, contactList, R.layout.movie_list, new String[]{"contactId", "MovieTitle","Director"}, new int[]{R.id.contactId, R.id.MovieTitle, R.id.Director});
+            ListAdapter adapter = new SimpleAdapter(MainActivity.this, contactList, R.layout.movie_list, new String[]{"movieid", "MovieTitle","Director"}, new int[]{R.id.movieid, R.id.MovieTitle, R.id.Director});
 
             // setListAdapter provides the Cursor for the ListView
             // The Cursor provides access to the database data

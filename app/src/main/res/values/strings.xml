@@ -13,7 +13,8 @@
 
     <string name="contacts_title">List of contacts</string>
     <string name="add_button">Add Movie  </string>
-
+    <string name="Dark_Theme">Dark Theme</string>
+    <string name="Light_Theme">Light Theme</string>
     <string name="save_data">Save Movie</string>
     <string name="input">Text Input</string>
     <string name="input2">Number Input</string>

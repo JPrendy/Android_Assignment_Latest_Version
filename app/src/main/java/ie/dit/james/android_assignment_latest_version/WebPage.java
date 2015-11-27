@@ -71,5 +71,12 @@ public class WebPage extends Activity {
 
     }
 
+    //this is here because since the listview that brought you here is in MainActivity and not
+    //EditMovie.java, I found it not possible to carry over the movieid in order to retrieve the
+    //screen you were just on
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "Press the Back To HomeScreen button",
+                Toast.LENGTH_SHORT).show();
+    }
 
 }
