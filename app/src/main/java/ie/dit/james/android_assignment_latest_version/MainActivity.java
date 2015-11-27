@@ -55,6 +55,7 @@ public class MainActivity extends ListActivity {
         final TableRow contentView = (TableRow) findViewById(R.id.tableRow1_5);
         final TableRow contentView2 = (TableRow) findViewById(R.id.tableRow2);
         final TableRow contentView3 = (TableRow) findViewById(R.id.tableRow3);
+        final TableRow contentView4 = (TableRow) findViewById(R.id.tableRow4);
         final Button button1 = (Button) findViewById(R.id.button2);
 
         //this cause this method to be called when ever tableRow1_5 is clicked on
@@ -84,6 +85,7 @@ public class MainActivity extends ListActivity {
                     contentView0.setBackgroundColor(0xff616161);
                     contentView.setBackgroundColor(0xff616161);
                     contentView3.setBackgroundColor(0xff757575);
+                    contentView4.setBackgroundColor(0xff757575);
                     contentView2.setBackgroundColor(0xff9E9E9E);
                     button1.setText(Dark);
 
@@ -97,6 +99,7 @@ public class MainActivity extends ListActivity {
                     contentView0.setBackgroundColor(0xffBDBDBD);
                     contentView.setBackgroundColor(0xffBDBDBD);
                     contentView3.setBackgroundColor(0xFFE0E0E0);
+                    contentView4.setBackgroundColor(0xFFE0E0E0);
                     contentView2.setBackgroundColor(0xFFEEEEEE);
                     button1.setText(Light);
 

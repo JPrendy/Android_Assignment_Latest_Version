@@ -19,7 +19,6 @@
             android:layout_height="wrap_content"
             android:background="#9E9E9E"
             android:padding="@dimen/padding_5dp"
-
             android:text="@string/edit_Movie_Title"
             android:layout_marginStart="125dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -39,7 +38,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:paddingLeft="@dimen/padding_5dp"
+            android:paddingStart="@dimen/padding_5dp"
+            android:paddingEnd="0dp"
             android:textSize="20sp"
             android:textStyle="bold"
             android:text="@string/MovieTitle" />
@@ -51,7 +51,8 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="text"
-            android:paddingRight="@dimen/padding_5dp" >
+            android:paddingStart="0dp"
+            android:paddingEnd="@dimen/padding_5dp" >
 
             <requestFocus />
         </EditText>
@@ -68,7 +69,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:paddingLeft="@dimen/padding_5dp"
+            android:paddingStart="@dimen/padding_5dp"
+            android:paddingEnd="0dp"
             android:textSize="20sp"
             android:textStyle="bold"
             android:text="@string/Director" />
@@ -80,7 +82,8 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="text"
-            android:paddingRight="@dimen/padding_5dp" >
+            android:paddingStart="0dp"
+            android:paddingEnd="@dimen/padding_5dp" >
         </EditText>
     </TableRow>
 
@@ -94,7 +97,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:paddingLeft="@dimen/padding_5dp"
+            android:paddingStart="@dimen/padding_5dp"
+            android:paddingEnd="0dp"
             android:textSize="20sp"
             android:textStyle="bold"
             android:text="@string/Starring" />
@@ -106,7 +110,8 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="text"
-            android:paddingRight="@dimen/padding_5dp" >
+            android:paddingStart="0dp"
+            android:paddingEnd="@dimen/padding_5dp" >
         </EditText>
     </TableRow>
 
@@ -121,7 +126,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:paddingLeft="@dimen/padding_5dp"
+            android:paddingStart="@dimen/padding_5dp"
+            android:paddingEnd="0dp"
             android:textSize="20sp"
             android:textStyle="bold"
             android:text="@string/Genre" />
@@ -133,7 +139,8 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="text"
-            android:paddingRight="@dimen/padding_5dp" >
+            android:paddingStart="0dp"
+            android:paddingEnd="@dimen/padding_5dp" >
         </EditText>
     </TableRow>
 
@@ -148,7 +155,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:paddingLeft="@dimen/padding_5dp"
+            android:paddingStart="@dimen/padding_5dp"
+            android:paddingEnd="0dp"
             android:textSize="20sp"
             android:textStyle="bold"
             android:text="@string/RunTime" />
@@ -159,8 +167,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="text"
-            android:paddingRight="@dimen/padding_5dp" >
+            android:inputType="number"
+            android:paddingStart="0dp"
+            android:paddingEnd="@dimen/padding_5dp" >
         </EditText>
     </TableRow>
 
@@ -175,7 +184,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:paddingLeft="@dimen/padding_5dp"
+            android:paddingStart="@dimen/padding_5dp"
+            android:paddingEnd="0dp"
             android:textSize="20sp"
             android:textStyle="bold"
             android:text="@string/Comments" />
@@ -186,7 +196,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:inputType="text"
-            android:paddingRight="@dimen/padding_5dp" >
+            android:paddingStart="0dp"
+            android:paddingEnd="@dimen/padding_5dp" >
         </EditText>
     </TableRow>
 

@@ -45,10 +45,10 @@
         android:background="#ff616161" >
 
         <TextView
-            android:id="@+id/contactsTitleTextView"
+            android:id="@+id/MovieTitleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:textSize="26sp"
             android:text="@string/movie_title"
             android:textStyle="bold"
@@ -63,11 +63,10 @@
             android:onClick="showAddMovie"
             android:text="@string/add_button"
             android:textStyle="bold"
-
-            android:paddingRight="10dp"
+            android:paddingEnd="10dp"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
-            android:drawableLeft="@drawable/movie_2"
+            android:drawableStart="@drawable/movie_2"
             />
     </TableRow>
 
@@ -80,6 +79,42 @@
 
 
     </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff757575">
+        <TextView
+        android:id="@+id/MovieTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:textSize="20sp"
+        android:text="@string/Movie"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF"
+        android:layout_weight="1">
+        </TextView>
+
+        <TextView
+            android:id="@+id/DirectorTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/Director"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1">
+        </TextView>
+
+    </TableRow>
+
+
+
+
     <TableRow
         android:id="@+id/tableRow2"
         android:layout_width="match_parent"

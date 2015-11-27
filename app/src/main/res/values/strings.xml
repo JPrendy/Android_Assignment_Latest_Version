@@ -4,6 +4,7 @@
     <string name="Silent">This is a sound icon that represent the silent mode</string>
     <string name="add_Movie">Add Movie</string>
     <string name="MovieTitle">Movie Title</string>
+    <string name="Movie">Movie</string>
     <string name="Director">Director</string>
     <string name="Starring">Starring</string>
     <string name="Genre">Genre</string>
