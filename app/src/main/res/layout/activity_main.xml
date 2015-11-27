@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:screenOrientation="portrait"
+    android:foreground="?selectableItemBackground"
+    tools:context=".MainActivity" >
+
+    <TableRow
+        android:id="@+id/tableRow1_5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff616161" >
+
+
+        <ImageView
+            android:id="@+id/phone_icon"
+            android:contentDescription="@string/Silent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ringer_on_smaller_6"
+            />
+
+
+        <Button
+            android:id="@+id/button2"
+            android:background="#ff616161"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="0dp"
+            android:textColor="#FFFFFF"
+            android:text="Dark Theme"
+
+            android:textSize="22sp" />
+
+
+    </TableRow>
+
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FF645C5C" >
+
+        <TextView
+            android:id="@+id/contactsTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:textSize="26sp"
+            android:text="@string/contacts_title"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"/>
+
+
+        <Button
+            android:id="@+id/button1"
+            android:background="#9E9E9E"
+            android:onClick="showAddContact"
+            android:text="@string/add_button"
+            android:textStyle="bold"
+
+            android:paddingRight="10dp"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:drawableLeft="@drawable/movie_2"
+            />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff757575">
+        <TextView />
+
+
+    </TableRow>
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff9E9E9E">
+        <ListView
+            android:id="@android:id/list"
+            android:paddingTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_span="2">
+        </ListView>
+
+    </TableRow>
+
+
+
+</TableLayout>
