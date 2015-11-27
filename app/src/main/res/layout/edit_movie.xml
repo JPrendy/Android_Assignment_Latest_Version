@@ -21,7 +21,7 @@
             android:padding="@dimen/padding_5dp"
 
             android:text="@string/edit_Movie_Title"
-            android:layout_marginLeft="135dp"
+            android:layout_marginLeft="125dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#FFFFFF"
             android:layout_span="2"

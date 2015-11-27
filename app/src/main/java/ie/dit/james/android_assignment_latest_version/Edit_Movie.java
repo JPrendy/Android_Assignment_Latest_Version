@@ -55,19 +55,19 @@ public class Edit_Movie extends Activity {
 
 
 
-        HashMap<String, String> contactList = dbTools.getContactInfo(movieid);
+        HashMap<String, String> MovieList = dbTools.getMovieInfo(movieid);
 
-        if(contactList.size()!=0)
+        if(MovieList.size()!=0)
 
         {
 
 
-            MovieTitle.setText(contactList.get("MovieTitle"));
-            Director.setText(contactList.get("Director"));
-            Starring.setText(contactList.get("Starring"));
-            Genre.setText(contactList.get("Genre"));
-            RunTime.setText(contactList.get("RunTime"));
-            Comments.setText(contactList.get("Comments"));
+            MovieTitle.setText(MovieList.get("MovieTitle"));
+            Director.setText(MovieList.get("Director"));
+            Starring.setText(MovieList.get("Starring"));
+            Genre.setText(MovieList.get("Genre"));
+            RunTime.setText(MovieList.get("RunTime"));
+            Comments.setText(MovieList.get("Comments"));
 
         }
 
@@ -98,7 +98,7 @@ public class Edit_Movie extends Activity {
         queryValuesMap.put("Genre", Genre.getText().toString());
         queryValuesMap.put("RunTime", RunTime.getText().toString());
         queryValuesMap.put("Comments", Comments.getText().toString());
-        dbTools.updateContact(queryValuesMap);
+        dbTools.updateMovie(queryValuesMap);
 
 
         this.callMainActivity(view);
@@ -113,7 +113,7 @@ public class Edit_Movie extends Activity {
 
         String movieid = theIntent.getStringExtra("movieid");
 
-        dbTools.deleteContact(movieid);
+        dbTools.DeleteMovie(movieid);
 
         this.callMainActivity(view);
 

@@ -70,7 +70,7 @@ public class New_Movie extends Activity {
 
         // Call for the HashMap to be added to the database
 
-        dbTools.insertContact(queryValuesMap);
+        dbTools.insertMovie(queryValuesMap);
 
         // Call for MainActivity to execute
 

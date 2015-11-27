@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/padding_5dp"
             android:text="@string/add_Movie"
-            android:layout_marginLeft="135dp"
+            android:layout_marginLeft="125dp"
             android:textColor="#FFFFFF"
             android:textAppearance="?android:attr/textAppearanceLarge"
              />

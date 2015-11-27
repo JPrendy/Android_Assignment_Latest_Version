@@ -23,7 +23,7 @@ public class DBTools extends SQLiteOpenHelper {
     //this is our constructor for DBTools that adds the name of our database and our version number
     public DBTools(Context applicationContext){
 
-        super(applicationContext, "movie.db", null, 5);
+        super(applicationContext, "movie.db", null, 7);
 
     }
 
@@ -49,7 +49,7 @@ public class DBTools extends SQLiteOpenHelper {
 
     }
 
-    public void insertContact(HashMap<String, String> queryValues){
+    public void insertMovie(HashMap<String, String> queryValues){
 
         SQLiteDatabase database = this.getWritableDatabase();
 
@@ -70,7 +70,7 @@ public class DBTools extends SQLiteOpenHelper {
 
     }
 
-    public int updateContact(HashMap<String, String> queryValues){
+    public int updateMovie(HashMap<String, String> queryValues){
 
         SQLiteDatabase database = this.getWritableDatabase();
 
@@ -89,7 +89,7 @@ public class DBTools extends SQLiteOpenHelper {
 
     }
 
-    public void deleteContact(String id){
+    public void DeleteMovie(String id){
 
         SQLiteDatabase database = this.getWritableDatabase();
 
@@ -99,9 +99,9 @@ public class DBTools extends SQLiteOpenHelper {
 
     }
 
-    public ArrayList<HashMap<String, String>> getAllContacts(){
+    public ArrayList<HashMap<String, String>> getAllMovies(){
 
-        ArrayList<HashMap<String, String>> contactArrayList = new ArrayList<HashMap<String, String>>();
+        ArrayList<HashMap<String, String>> movieArrayList = new ArrayList<HashMap<String, String>>();
 
         String selectQuery = "SELECT * FROM movies ORDER BY MovieTitle";
 
@@ -113,32 +113,32 @@ public class DBTools extends SQLiteOpenHelper {
 
             do{
 
-                HashMap<String, String> contactMap = new HashMap<String, String>();
+                HashMap<String, String> movieMap = new HashMap<String, String>();
 
 
 
-                contactMap.put("movieid", cursor.getString(0));
-                contactMap.put("MovieTitle", cursor.getString(1));
-                contactMap.put("Director", cursor.getString(2));
-                contactMap.put("Starring", cursor.getString(3));
-                contactMap.put("Genre", cursor.getString(4));
-                contactMap.put("RunTime", cursor.getString(5));
-                contactMap.put("Comments", cursor.getString(6));
+                movieMap.put("movieid", cursor.getString(0));
+                movieMap.put("MovieTitle", cursor.getString(1));
+                movieMap.put("Director", cursor.getString(2));
+                movieMap.put("Starring", cursor.getString(3));
+                movieMap.put("Genre", cursor.getString(4));
+                movieMap.put("RunTime", cursor.getString(5));
+                movieMap.put("Comments", cursor.getString(6));
 
 
-                contactArrayList.add(contactMap);
+                movieArrayList.add(movieMap);
 
             } while(cursor.moveToNext());
 
         }
 
-        return contactArrayList;
+        return movieArrayList;
 
     }
 
-    public HashMap<String, String> getContactInfo(String id){
+    public HashMap<String, String> getMovieInfo(String id){
 
-        HashMap<String, String> contactMap = new HashMap<String, String>();
+        HashMap<String, String> movieMap = new HashMap<String, String>();
 
         SQLiteDatabase database = this.getReadableDatabase();
 
@@ -151,20 +151,20 @@ public class DBTools extends SQLiteOpenHelper {
             do{
 
 
-                contactMap.put("movieid", cursor.getString(0));
-                contactMap.put("MovieTitle", cursor.getString(1));
-                contactMap.put("Director", cursor.getString(2));
-                contactMap.put("Starring", cursor.getString(3));
-                contactMap.put("Genre", cursor.getString(4));
-                contactMap.put("RunTime", cursor.getString(5));
-                contactMap.put("Comments", cursor.getString(6));
+                movieMap.put("movieid", cursor.getString(0));
+                movieMap.put("MovieTitle", cursor.getString(1));
+                movieMap.put("Director", cursor.getString(2));
+                movieMap.put("Starring", cursor.getString(3));
+                movieMap.put("Genre", cursor.getString(4));
+                movieMap.put("RunTime", cursor.getString(5));
+                movieMap.put("Comments", cursor.getString(6));
 
 
             } while(cursor.moveToNext());
 
         }
 
-        return contactMap;
+        return movieMap;
 
     }
 

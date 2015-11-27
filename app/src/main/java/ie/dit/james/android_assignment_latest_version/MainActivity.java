@@ -125,11 +125,11 @@ public class MainActivity extends ListActivity {
         // Gets all the data from the database and stores it
         // in an ArrayList
 
-        ArrayList<HashMap<String, String>> contactList = dbTools.getAllContacts();
+        ArrayList<HashMap<String, String>> MovieList = dbTools.getAllMovies();
 
         // Check to make sure there are contacts to display
 
-        if (contactList.size() != 0) {
+        if (MovieList.size() != 0) {
 
             // Get the ListView and assign an event handler to it
 
@@ -172,7 +172,7 @@ public class MainActivity extends ListActivity {
 
 
 
-            ListAdapter adapter = new SimpleAdapter(MainActivity.this, contactList, R.layout.movie_list, new String[]{"movieid", "MovieTitle","Director"}, new int[]{R.id.movieid, R.id.MovieTitle, R.id.Director});
+            ListAdapter adapter = new SimpleAdapter(MainActivity.this, MovieList, R.layout.movie_list, new String[]{"movieid", "MovieTitle","Director"}, new int[]{R.id.movieid, R.id.MovieTitle, R.id.Director});
 
             // setListAdapter provides the Cursor for the ListView
             // The Cursor provides access to the database data
